@@ -105,7 +105,15 @@ export default function TodayWorkout() {
               <div key={exIdx} className={`${styles.exCard} ${exDone ? styles.exDone : ''}`}>
                 <div className={styles.exHeader}>
                   <h3>{ex.name}</h3>
-                  {exDone && <span className="badge" style={{ background: 'var(--success-light)', color: 'var(--success)' }}>✅</span>}
+                  <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                    {ex.youtubeUrl && (
+                      <a href={ex.youtubeUrl} target="_blank" rel="noopener noreferrer"
+                        style={{ display: 'flex', alignItems: 'center', gap: '4px', background: '#ff0000', color: '#fff', borderRadius: '8px', padding: '4px 10px', fontSize: '0.78rem', fontWeight: 600, textDecoration: 'none' }}>
+                        ▶ YouTube
+                      </a>
+                    )}
+                    {exDone && <span className="badge" style={{ background: 'var(--success-light)', color: 'var(--success)' }}>✅</span>}
+                  </div>
                 </div>
                 <div className={styles.setList}>
                   <div className={styles.setHeader}>

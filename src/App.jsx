@@ -16,6 +16,7 @@ import CardioLog from './pages/trainer/CardioLog';
 
 import ClientDashboard from './pages/client/ClientDashboard';
 import FoodPhotoUpload from './pages/client/FoodPhotoUpload';
+import MyMealPlan from './pages/client/MyMealPlan';
 
 function RequireTrainer({ children }) {
   const { user } = useAuth();
@@ -58,6 +59,7 @@ function App() {
         {/* Client routes */}
         <Route path="/client/dashboard" element={<RequireClient><ClientDashboard /></RequireClient>} />
         <Route path="/client/food-photo" element={<RequireClient><FoodPhotoUpload /></RequireClient>} />
+        <Route path="/client/meal-plan" element={<RequireClient><MyMealPlan /></RequireClient>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

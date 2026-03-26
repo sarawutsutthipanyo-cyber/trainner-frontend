@@ -5,6 +5,7 @@ import styles from './ClientLayout.module.css';
 const navItems = [
   { to: '/client/dashboard', icon: '🏠', label: 'หน้าหลัก' },
   { to: '/client/workout', icon: '🏋️', label: 'ออกกำลังกาย' },
+  { to: '/client/meal-plan', icon: '🍽️', label: 'แผนอาหาร' },
   { to: '/client/food', icon: '🍱', label: 'บันทึกอาหาร' },
   { to: '/client/progress', icon: '📈', label: 'วัดผล' },
   { to: '/client/cardio', icon: '🏃', label: 'คาร์ดิโอ' },

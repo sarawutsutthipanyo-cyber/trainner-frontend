@@ -148,6 +148,15 @@ export default function ProgramBuilder() {
                       <span className={styles.exLabel}>ครั้ง</span>
                       <input className={styles.exInput} type="number" step="2.5" value={ex.weight} onChange={(e) => updateExercise(ex.exerciseId, { weight: Number(e.target.value) })} min="0" title="Weight (kg)" />
                       <span className={styles.exLabel}>kg</span>
+                      <input
+                        className={styles.exInput}
+                        style={{ width: '140px', fontSize: '0.75rem' }}
+                        type="url"
+                        placeholder="🔗 YouTube URL"
+                        value={ex.youtubeUrl || ''}
+                        onChange={(e) => updateExercise(ex.exerciseId, { youtubeUrl: e.target.value })}
+                        title="YouTube tutorial link"
+                      />
                       <button className="btn btn-danger btn-sm" onClick={() => removeExercise(ex.exerciseId)}><X size={13} /></button>
                     </div>
                   ))}
