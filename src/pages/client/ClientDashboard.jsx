@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { getMyProfile, getActiveProgram } from '../../api';
-import { Dumbbell, Timer, Moon, Camera, LogOut, ChevronRight, Flame } from 'lucide-react';
+import { Dumbbell, Timer, Moon, Camera, ChevronRight, Flame } from 'lucide-react';
+import ClientLayout from '../../components/layout/ClientLayout';
 import styles from './ClientDashboard.module.css';
 
 const DAY_TH = ['จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์','เสาร์','อาทิตย์'];
@@ -27,26 +28,12 @@ export default function ClientDashboard() {
     }).catch(console.error).finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <div className={styles.loading}>กำลังโหลด...</div>;
+  if (loading) return <ClientLayout><div className={styles.loading}>กำลังโหลด...</div></ClientLayout>;
 
   const today = program?.days?.find((d) => d.dayOfWeek === todayIdx);
 
   return (
-    <div className={styles.page}>
-      {/* Header */}
-      <header className={styles.header}>
-        <div className={styles.headerLeft}>
-          <Dumbbell size={22} strokeWidth={2.5} style={{ color: 'var(--primary)' }} />
-          <span className={styles.brand}>TrainerPro</span>
-        </div>
-        <div className={styles.headerRight}>
-          <span className={styles.userName}>{user?.name}</span>
-          <button className={styles.logoutBtn} onClick={logout} title="ออกจากระบบ">
-            <LogOut size={18} />
-          </button>
-        </div>
-      </header>
-
+    <ClientLayout>
       <div className={styles.content}>
         {/* Greeting */}
         <div className={styles.greeting}>
@@ -144,6 +131,6 @@ export default function ClientDashboard() {
           <ChevronRight size={20} />
         </Link>
       </div>
-    </div>
+    </ClientLayout>
   );
 }
