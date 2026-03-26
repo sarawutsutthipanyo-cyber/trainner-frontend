@@ -57,6 +57,7 @@ export const clientLogin = (data) => api.post('/auth/client-login', data);
 
 // ── Food Photos ───────────────────────────────
 export const uploadFoodPhoto = (formData) => api.post('/food-photos/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+export const analyzeFood = (data) => api.post('/food-analysis/analyze', data);
 export const getFoodPhotos = (clientId) => api.get(`/food-photos/client/${clientId}`);
 export const deleteFoodPhoto = (id) => api.delete(`/food-photos/${id}`);
 

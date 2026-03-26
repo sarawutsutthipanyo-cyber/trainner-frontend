@@ -21,6 +21,7 @@ import TodayWorkout from './pages/client/TodayWorkout';
 import FoodLogger from './pages/client/FoodLogger';
 import ProgressTracker from './pages/client/ProgressTracker';
 import CardioLogger from './pages/client/CardioLogger';
+import FoodAnalyzer from './pages/client/FoodAnalyzer';
 
 function RequireTrainer({ children }) {
   const { user } = useAuth();
@@ -68,6 +69,7 @@ function App() {
         <Route path="/client/progress" element={<RequireClient><ProgressTracker /></RequireClient>} />
         <Route path="/client/cardio" element={<RequireClient><CardioLogger /></RequireClient>} />
         <Route path="/client/food-photo" element={<RequireClient><FoodPhotoUpload /></RequireClient>} />
+        <Route path="/client/food-analyzer" element={<RequireClient><FoodAnalyzer /></RequireClient>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

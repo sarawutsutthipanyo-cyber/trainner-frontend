@@ -7,6 +7,7 @@ const navItems = [
   { to: '/client/workout', icon: '🏋️', label: 'ออกกำลังกาย' },
   { to: '/client/meal-plan', icon: '🍽️', label: 'แผนอาหาร' },
   { to: '/client/food', icon: '🍱', label: 'บันทึกอาหาร' },
+  { to: '/client/food-analyzer', icon: '🔬', label: 'AI วิเคราะห์' },
   { to: '/client/progress', icon: '📈', label: 'วัดผล' },
   { to: '/client/cardio', icon: '🏃', label: 'คาร์ดิโอ' },
 ];
