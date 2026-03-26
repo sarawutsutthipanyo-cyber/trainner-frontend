@@ -117,7 +117,10 @@ export default function FoodLogger() {
               <div className={styles.addBox}>
                 <div className={styles.addInputs}>
                   <input className="form-control" placeholder="🔍 ค้นหาอาหาร..." value={search} onChange={(e) => handleSearch(e.target.value)} autoFocus />
-                  <input className="form-control" type="number" placeholder="ปริมาณ (g)" value={qty} onChange={(e) => setQty(Number(e.target.value))} min="1" style={{ width: '120px' }} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <input className="form-control" type="number" placeholder="ปริมาณ" value={qty} onChange={(e) => setQty(Number(e.target.value))} min="1" style={{ width: '100px' }} />
+                    <span style={{ color: 'var(--text-secondary)', fontWeight: 500, whiteSpace: 'nowrap' }}>กรัม (g)</span>
+                  </div>
                 </div>
                 {results.length > 0 && (
                   <div className={styles.dropdown}>
