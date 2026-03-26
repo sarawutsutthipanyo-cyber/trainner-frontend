@@ -1,69 +1,61 @@
 .page { max-width: 1100px; }
 
-.header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-.header h1 { font-size: 1.4rem; font-weight: 700; }
+.header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
+.header h1 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.04em; }
 .header p { color: var(--muted); font-size: 0.85rem; }
 
 .clientHead { display: flex; align-items: center; gap: 1rem; flex: 1; }
 .avatar {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: var(--primary); color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; font-weight: 700;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
 }
 
-.headerActions { display: flex; gap: 0.5rem; }
+.headerActions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
 .overview { display: flex; flex-direction: column; gap: 1rem; }
-.statsRow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.statsRow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.875rem; }
 
 .twoCol { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.twoCol h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 1rem; }
+.twoCol h3 { font-size: 0.78rem; font-weight: 700; margin-bottom: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
 .tdeeGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
 .tdeeItem {
   background: var(--bg);
-  border-radius: 8px;
-  padding: 0.75rem;
-  display: flex; flex-direction: column; gap: 0.15rem;
+  border-radius: 10px;
+  padding: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border: 1px solid var(--border-subtle);
 }
-.tdeeItem span { font-size: 0.72rem; color: var(--muted); }
-.tdeeItem strong { font-size: 1rem; font-weight: 700; }
+.tdeeItem span { font-size: 0.68rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.tdeeItem strong { font-size: 1rem; font-weight: 800; color: var(--text); }
 
 .programGrid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; margin-top: 1rem; }
-.dayCard { border-radius: 8px; padding: 0.75rem 0.5rem; text-align: center; background: var(--bg); }
-.dayCard.rest { background: #f1f5f9; }
-.dayCard.cardio { background: #d1fae5; }
-.dayCard.workout { background: #ede9fe; }
-.dayName { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.25rem; }
-.dayType { font-size: 0.78rem; font-weight: 600; }
-.dayExCount { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
+.dayCard { border-radius: 10px; padding: 0.75rem 0.4rem; text-align: center; }
+.dayCard.rest { background: #f8fafc; border: 1px solid var(--border-subtle); }
+.dayCard.cardio { background: #ecfdf5; border: 1px solid #a7f3d0; }
+.dayCard.workout { background: #eef2ff; border: 1px solid #c7d2fe; }
+.dayName { font-size: 0.68rem; color: var(--muted); margin-bottom: 0.25rem; font-weight: 700; }
+.dayType { font-size: 0.75rem; font-weight: 700; }
+.dayExCount { font-size: 0.67rem; color: var(--muted); margin-top: 0.2rem; }
 
 .progressTab { display: flex; flex-direction: column; gap: 1rem; }
-.progressTab h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; }
+.progressTab h3 { font-size: 0.78rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  .headerActions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    width: 100%;
-  }
-  .clientHead {
-    flex-wrap: wrap;
-  }
-  .twoCol {
-    grid-template-columns: 1fr;
-  }
-  .statsRow {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .programGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .headerActions { flex-wrap: wrap; width: 100%; }
+  .clientHead { flex-wrap: wrap; }
+  .twoCol { grid-template-columns: 1fr; }
+  .statsRow { grid-template-columns: repeat(2, 1fr); }
+  .programGrid { grid-template-columns: repeat(2, 1fr); }
 }

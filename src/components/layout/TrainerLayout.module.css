@@ -5,24 +5,28 @@
 
 .sidebar {
   width: var(--sidebar-w);
-  background: #1e293b;
+  background: #0f172a;
   color: #fff;
   display: flex;
   flex-direction: column;
   position: fixed;
   top: 0; left: 0; bottom: 0;
   z-index: 100;
+  border-right: 1px solid rgba(255,255,255,0.05);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 1.5rem 1.25rem;
-  font-size: 1.15rem;
-  font-weight: 700;
-  border-bottom: 1px solid #334155;
+  gap: 0.65rem;
+  padding: 1.4rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
+
+.brand svg { color: #818cf8; }
 
 .brandIcon { font-size: 1.4rem; }
 
@@ -31,7 +35,7 @@
   padding: 1rem 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.2rem;
 }
 
 .navItem {
@@ -39,47 +43,63 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.7rem 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #94a3b8;
-  transition: all 0.15s;
+  color: #64748b;
+  transition: all 0.15s ease;
 }
 
-.navItem:hover { background: #334155; color: #fff; }
-.navItem.active { background: var(--primary); color: #fff; }
+.navItem:hover { background: rgba(255,255,255,0.07); color: #cbd5e1; }
+.navItem.active {
+  background: rgba(99,102,241,0.18);
+  color: #a5b4fc;
+  font-weight: 600;
+}
 
 .userBox {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 1.25rem;
-  border-top: 1px solid #334155;
+  padding: 1rem 1.1rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 .avatar {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: var(--primary);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 1rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
   flex-shrink: 0;
 }
 
 .userInfo { flex: 1; min-width: 0; }
-.userName { font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.userRole { font-size: 0.75rem; color: #64748b; }
+.userName { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #e2e8f0; }
+.userRole { font-size: 0.7rem; color: #475569; margin-top: 1px; font-weight: 500; }
 
 .logoutBtn {
   background: none;
-  border: none;
-  color: #64748b;
-  font-size: 1.1rem;
-  padding: 0.25rem;
-  border-radius: 4px;
-  transition: color 0.15s;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #475569;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
 }
-.logoutBtn:hover { color: #ef4444; }
+.logoutBtn:hover {
+  background: rgba(239,68,68,0.15);
+  border-color: rgba(239,68,68,0.3);
+  color: #f87171;
+}
 
 .main {
   margin-left: var(--sidebar-w);
@@ -89,13 +109,8 @@
   max-width: calc(100vw - var(--sidebar-w));
 }
 
-.topBar {
-  display: none; /* hidden on desktop */
-}
-
-.overlay {
-  display: none;
-}
+.topBar { display: none; }
+.overlay { display: none; }
 
 @media (max-width: 768px) {
   .sidebar {
@@ -103,14 +118,13 @@
     transition: transform 0.25s ease;
     z-index: 200;
   }
-  .sidebarOpen {
-    transform: translateX(0);
-  }
+  .sidebarOpen { transform: translateX(0); }
   .overlay {
     display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(2px);
     z-index: 199;
   }
   .main {
@@ -122,24 +136,28 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: #1e293b;
+    padding: 0.8rem 1rem;
+    background: #0f172a;
     color: #fff;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .topBarBrand {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1rem;
     flex: 1;
+    letter-spacing: -0.02em;
   }
   .hamburger {
     background: none;
     border: none;
-    color: #fff;
+    color: #94a3b8;
     padding: 0.25rem;
     display: flex;
     align-items: center;
+    transition: color 0.15s;
   }
+  .hamburger:hover { color: #fff; }
 }

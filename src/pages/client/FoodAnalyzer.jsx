@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { analyzeFood, addMealEntry, getMyProfile } from '../../api';
 import ClientLayout from '../../components/layout/ClientLayout';
+import { Camera, ScanLine, CheckCircle, RotateCcw, ArrowRight } from 'lucide-react';
 import styles from './FoodAnalyzer.module.css';
 
 const MEALS = ['breakfast', 'lunch', 'dinner', 'snack'];
@@ -83,7 +84,7 @@ export default function FoodAnalyzer() {
     <ClientLayout>
       <div className={styles.page}>
         <div className={styles.header}>
-          <h1>🔬 วิเคราะห์อาหาร AI</h1>
+          <h1>AI วิเคราะห์อาหาร</h1>
           <p className={styles.sub}>ถ่ายรูปอาหาร แล้ว AI จะประเมินโภชนาการให้อัตโนมัติ</p>
         </div>
 
@@ -93,7 +94,7 @@ export default function FoodAnalyzer() {
             <img src={preview} alt="food" className={styles.preview} />
           ) : (
             <div className={styles.uploadPlaceholder}>
-              <span className={styles.uploadIcon}>📷</span>
+              <div className={styles.uploadIcon}><Camera size={24} strokeWidth={1.75} /></div>
               <p>ถ่ายรูปหรือเลือกรูปอาหาร</p>
               <span className={styles.uploadHint}>รองรับ JPG, PNG</span>
             </div>
@@ -106,6 +107,7 @@ export default function FoodAnalyzer() {
           <div className={styles.analyzing}>
             <div className={styles.spinner} />
             <p>AI กำลังวิเคราะห์อาหาร...</p>
+            <ScanLine size={18} style={{ color: 'var(--primary)', marginLeft: 'auto', opacity: 0.6 }} />
           </div>
         )}
 
@@ -157,24 +159,28 @@ export default function FoodAnalyzer() {
             {/* Save to log */}
             {!saved ? (
               <div className={styles.saveSection}>
-                <label className={styles.mealLabel}>บันทึกลงมื้อ:</label>
+                <label className={styles.mealLabel}>บันทึกลงมื้อ</label>
                 <select className="form-control" value={mealType} onChange={(e) => setMealType(e.target.value)}>
                   {MEALS.map((m) => <option key={m} value={m}>{MEAL_TH[m]}</option>)}
                 </select>
                 <button className="btn btn-primary" style={{ width: '100%', padding: '0.75rem' }} onClick={handleSaveToLog} disabled={saving}>
-                  {saving ? 'กำลังบันทึก...' : '💾 บันทึกลงไดอารีอาหาร'}
+                  {saving ? 'กำลังบันทึก...' : 'บันทึกลงไดอารีอาหาร'}
                 </button>
               </div>
             ) : (
               <div className={styles.savedMsg}>
-                ✅ บันทึกลงไดอารีอาหารแล้ว
-                <button className="btn btn-ghost btn-sm" onClick={() => navigate('/client/food')}>ดูไดอารี →</button>
+                <CheckCircle size={18} />
+                บันทึกลงไดอารีอาหารแล้ว
+                <button className="btn btn-ghost btn-sm" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px' }} onClick={() => navigate('/client/food')}>
+                  ดูไดอารี <ArrowRight size={14} />
+                </button>
               </div>
             )}
 
             {/* Retry */}
             <button className={styles.retryBtn} onClick={() => { setPreview(null); setResult(null); setSaved(false); }}>
-              📷 วิเคราะห์รูปใหม่
+              <RotateCcw size={14} style={{ marginRight: '6px' }} />
+              วิเคราะห์รูปใหม่
             </button>
           </div>
         )}
