@@ -29,7 +29,6 @@ export default function FoodLogger() {
 
   const handleSearch = async (q) => {
     setSearch(q);
-    if (q.length < 2) return setResults([]);
     try { const r = await searchFood(q); setResults(r.data); } catch {}
   };
 
@@ -116,7 +115,7 @@ export default function FoodLogger() {
             {addMeal === mealType ? (
               <div className={styles.addBox}>
                 <div className={styles.addInputs}>
-                  <input className="form-control" placeholder="🔍 ค้นหาอาหาร..." value={search} onChange={(e) => handleSearch(e.target.value)} autoFocus />
+                  <input className="form-control" placeholder="🔍 ค้นหาอาหาร..." value={search} onChange={(e) => handleSearch(e.target.value)} onFocus={() => handleSearch(search)} autoFocus />
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <input className="form-control" type="number" placeholder="ปริมาณ" value={qty} onChange={(e) => setQty(Number(e.target.value))} min="1" style={{ width: '100px' }} />
                     <span style={{ color: 'var(--text-secondary)', fontWeight: 500, whiteSpace: 'nowrap' }}>กรัม (g)</span>
@@ -126,8 +125,11 @@ export default function FoodLogger() {
                   <div className={styles.dropdown}>
                     {results.map((f) => (
                       <button key={f.id} className={styles.dropdownItem} onClick={() => handleAdd(f)} disabled={loading}>
-                        <span>{f.name}{f.nameTh ? ` (${f.nameTh})` : ''}</span>
-                        <span className={styles.foodMeta}>{f.caloriesPer100g} kcal · P:{f.proteinPer100g}g C:{f.carbsPer100g}g F:{f.fatPer100g}g / 100g</span>
+                        {f.imageUrl && <img src={f.imageUrl} alt={f.nameTh || f.name} style={{ width: 44, height: 44, objectFit: 'cover', borderRadius: 8, flexShrink: 0 }} />}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                          <span>{f.nameTh || f.name}</span>
+                          <span className={styles.foodMeta}>{f.name} · {f.caloriesPer100g} kcal · P:{f.proteinPer100g}g C:{f.carbsPer100g}g F:{f.fatPer100g}g / 100g</span>
+                        </div>
                       </button>
                     ))}
                   </div>

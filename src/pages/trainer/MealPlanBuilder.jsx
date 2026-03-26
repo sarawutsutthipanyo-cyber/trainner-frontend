@@ -43,7 +43,6 @@ export default function MealPlanBuilder() {
 
   const handleFoodSearch = async (q) => {
     setFoodSearch(q);
-    if (q.length < 2) return setFoodResults([]);
     try { const r = await searchFood(q); setFoodResults(r.data); } catch {}
   };
 
@@ -164,14 +163,17 @@ export default function MealPlanBuilder() {
                   </div>
                   {addTarget?.meal === mealType ? (
                     <div className={styles.addForm}>
-                      <input className="form-control" value={foodSearch} onChange={(e) => handleFoodSearch(e.target.value)} placeholder="🔍 ค้นหาอาหาร..." autoFocus />
+                      <input className="form-control" value={foodSearch} onChange={(e) => handleFoodSearch(e.target.value)} onFocus={() => handleFoodSearch(foodSearch)} placeholder="🔍 ค้นหาอาหาร..." autoFocus />
                       <input className="form-control" type="number" value={addQty} onChange={(e) => setAddQty(Number(e.target.value))} placeholder="ปริมาณ (g)" min="1" max="1000" />
                       {foodResults.length > 0 && (
                         <div className={styles.foodDropdown}>
                           {foodResults.map((f) => (
                             <button key={f.id} className={styles.foodOption} onClick={() => addFoodToMeal(f, mealType)}>
-                              <span>{f.name}</span>
-                              <span style={{ color: 'var(--muted)', fontSize: '0.8rem' }}>{f.caloriesPer100g} kcal/100g · P:{f.proteinPer100g}g</span>
+                              {f.imageUrl && <img src={f.imageUrl} alt={f.nameTh || f.name} style={{ width: 44, height: 44, objectFit: 'cover', borderRadius: 8, flexShrink: 0 }} />}
+                              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                                <span>{f.nameTh || f.name}</span>
+                                <span style={{ color: 'var(--muted)', fontSize: '0.78rem' }}>{f.name} · {f.caloriesPer100g} kcal · P:{f.proteinPer100g}g C:{f.carbsPer100g}g F:{f.fatPer100g}g /100g</span>
+                              </div>
                             </button>
                           ))}
                         </div>
