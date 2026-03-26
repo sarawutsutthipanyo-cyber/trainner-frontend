@@ -4,6 +4,9 @@ import { getMyProfile, uploadFoodPhoto, getFoodPhotos } from '../../api';
 import { Camera, ArrowLeft } from 'lucide-react';
 import styles from './FoodPhotoUpload.module.css';
 
+const BACKEND = import.meta.env.PROD ? 'https://train-backend-zx61.onrender.com' : 'http://localhost:3000';
+const photoSrc = (url) => url?.startsWith('http') ? url : `${BACKEND}${url}`;
+
 const MEALS = ['breakfast','lunch','dinner','snack','other'];
 const MEAL_TH = { breakfast:'มื้อเช้า', lunch:'มื้อกลางวัน', dinner:'มื้อเย็น', snack:'ของว่าง', other:'อื่นๆ' };
 const todayStr = new Date().toISOString().split('T')[0];
@@ -98,7 +101,7 @@ export default function FoodPhotoUpload() {
             <div className={styles.photoGrid}>
               {photos.map((p) => (
                 <div key={p.id} className={styles.photoCard}>
-                  <img src={p.photoUrl} alt="food" className={styles.photoImg} />
+                  <img src={photoSrc(p.photoUrl)} alt="food" className={styles.photoImg} />
                   <div className={styles.photoMeta}>
                     <span>{MEAL_TH[p.mealType]}</span>
                     <span>{new Date(p.createdAt).toLocaleDateString('th-TH', { month:'short', day:'numeric' })}</span>
