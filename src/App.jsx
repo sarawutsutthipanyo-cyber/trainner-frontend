@@ -17,6 +17,10 @@ import CardioLog from './pages/trainer/CardioLog';
 import ClientDashboard from './pages/client/ClientDashboard';
 import FoodPhotoUpload from './pages/client/FoodPhotoUpload';
 import MyMealPlan from './pages/client/MyMealPlan';
+import TodayWorkout from './pages/client/TodayWorkout';
+import FoodLogger from './pages/client/FoodLogger';
+import ProgressTracker from './pages/client/ProgressTracker';
+import CardioLogger from './pages/client/CardioLogger';
 
 function RequireTrainer({ children }) {
   const { user } = useAuth();
@@ -58,8 +62,12 @@ function App() {
 
         {/* Client routes */}
         <Route path="/client/dashboard" element={<RequireClient><ClientDashboard /></RequireClient>} />
-        <Route path="/client/food-photo" element={<RequireClient><FoodPhotoUpload /></RequireClient>} />
+        <Route path="/client/workout" element={<RequireClient><TodayWorkout /></RequireClient>} />
+        <Route path="/client/food" element={<RequireClient><FoodLogger /></RequireClient>} />
         <Route path="/client/meal-plan" element={<RequireClient><MyMealPlan /></RequireClient>} />
+        <Route path="/client/progress" element={<RequireClient><ProgressTracker /></RequireClient>} />
+        <Route path="/client/cardio" element={<RequireClient><CardioLogger /></RequireClient>} />
+        <Route path="/client/food-photo" element={<RequireClient><FoodPhotoUpload /></RequireClient>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
