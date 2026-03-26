@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { getMyProfile, getActiveProgram, getTodayLog, saveWorkoutLog, completeWorkout } from '../../api';
+import { getMyProfile, getActiveProgram, getTodayLog, saveWorkoutLog, completeWorkout, getExercises } from '../../api';
 import ClientLayout from '../../components/layout/ClientLayout';
 import styles from './TodayWorkout.module.css';
 
@@ -17,17 +17,29 @@ export default function TodayWorkout() {
   useEffect(() => {
     getMyProfile().then(async (r) => {
       setClient(r.data);
-      const [pg, lg] = await Promise.all([getActiveProgram(r.data.id), getTodayLog(r.data.id)]);
+      const [pg, lg, exList] = await Promise.all([
+        getActiveProgram(r.data.id),
+        getTodayLog(r.data.id),
+        getExercises(),
+      ]);
+      const exMap = {};
+      (exList.data || []).forEach((e) => { exMap[e.id] = e; });
+
       const todayDay = pg.data?.days?.find((d) => d.dayOfWeek === dayOfWeek);
       setProgram(todayDay);
+
       if (lg.data) {
         setLog(lg.data);
-        setExercises(lg.data.exercises || []);
+        setExercises((lg.data.exercises || []).map((ex) => ({
+          ...ex,
+          youtubeUrl: ex.youtubeUrl || exMap[ex.exerciseId]?.youtubeUrl || '',
+        })));
         setCompleted(lg.data.isCompleted);
       } else if (todayDay?.exercises) {
         setExercises(todayDay.exercises.map((ex) => ({
           ...ex,
-          sets: Array.from({ length: ex.sets }, (_, i) => ({ reps: ex.reps, weight: ex.weight, completed: false })),
+          youtubeUrl: ex.youtubeUrl || exMap[ex.exerciseId]?.youtubeUrl || '',
+          sets: Array.from({ length: ex.sets }, () => ({ reps: ex.reps, weight: ex.weight, completed: false })),
         })));
       }
     }).catch(console.error);

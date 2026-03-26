@@ -46,7 +46,7 @@ export default function ProgramBuilder() {
     const cur = days[activeDay];
     if (cur.exercises.find((e) => e.exerciseId === ex.id)) return;
     setDay(activeDay, {
-      exercises: [...cur.exercises, { exerciseId: ex.id, name: ex.name, sets: 3, reps: 12, weight: 0, restSeconds: 60, notes: '' }],
+      exercises: [...cur.exercises, { exerciseId: ex.id, name: ex.name, sets: 3, reps: 12, weight: 0, restSeconds: 60, notes: '', youtubeUrl: ex.youtubeUrl || '' }],
     });
   };
 
