@@ -1,15 +1,14 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import axios from 'axios';
 
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 5173,
-    proxy: {
-      '/api': {
-        target: 'https://train-backend-zx61.onrender.com',
-        changeOrigin: true,
-      },
-    },
-  },
+// ตรวจสอบว่าเป็นเครื่องตัวเองหรือบน Production
+const isProduction = import.meta.env.PROD;
+
+const api = axios.create({
+  // ถ้าอยู่บน Production ให้ชี้ไปที่ Render ตรงๆ
+  // ถ้าอยู่เครื่องตัวเอง ให้ใช้ /api (เพื่อให้ proxy ใน vite.config.js ทำงาน)
+  baseURL: isProduction 
+    ? 'https://train-backend-zx61.onrender.com/api' 
+    : '/api',
 });
+
+export default api;
