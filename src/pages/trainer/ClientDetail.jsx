@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+
+const BACKEND = import.meta.env.PROD ? 'https://train-backend-zx61.onrender.com' : 'http://localhost:3000';
+const photoSrc = (url) => url?.startsWith('http') ? url : `${BACKEND}${url}`;
 import { getClientById, getProgressLogs, getCardioLogs, getWorkoutLogs, getActiveProgram, getFoodPhotos } from '../../api';
 import TrainerLayout from '../../components/layout/TrainerLayout';
 import WeightChart from '../../components/charts/WeightChart';
@@ -264,7 +267,7 @@ export default function ClientDetail() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '0.75rem', marginTop: '1rem' }}>
                   {foodPhotos.map((p) => (
                     <div key={p.id} style={{ borderRadius: '10px', overflow: 'hidden', background: '#f8fafc', border: '1px solid var(--border)' }}>
-                      <img src={p.photoUrl} alt="food" style={{ width: '100%', height: '130px', objectFit: 'cover', display: 'block' }} />
+                      <img src={photoSrc(p.photoUrl)} alt="food" style={{ width: '100%', height: '130px', objectFit: 'cover', display: 'block' }} />
                       <div style={{ padding: '0.5rem 0.6rem' }}>
                         <p style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text)' }}>
                           {{ breakfast:'มื้อเช้า', lunch:'กลางวัน', dinner:'เย็น', snack:'ของว่าง', other:'อื่นๆ' }[p.mealType]}
