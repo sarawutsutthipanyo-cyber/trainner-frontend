@@ -1,0 +1,53 @@
+.page { max-width: 1100px; }
+.header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.header h1 { font-size: 1.4rem; font-weight: 700; }
+.header p { font-size: 0.85rem; color: var(--muted); }
+.layout { display: flex; flex-direction: column; gap: 1rem; }
+
+.dayBar { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.dayBtn {
+  padding: 0.5rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px; background: var(--card);
+  font-size: 0.88rem; font-weight: 500;
+  display: flex; flex-direction: column; align-items: center; gap: 0.1rem;
+  transition: all 0.15s; cursor: pointer;
+}
+.dayBtn:hover { border-color: var(--primary); }
+.activeDayBtn { border-color: var(--primary); background: var(--primary-light); color: var(--primary); font-weight: 700; }
+.dayCal { font-size: 0.72rem; color: var(--muted); }
+
+.summaryBar {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: flex; gap: 2rem;
+}
+.summaryItem { display: flex; flex-direction: column; gap: 0.1rem; }
+.summaryItem span { font-size: 0.75rem; color: var(--muted); }
+.summaryItem strong { font-size: 1.15rem; font-weight: 700; }
+
+.mealsGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+.mealHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+.mealHeader h4 { font-size: 0.95rem; font-weight: 700; }
+.mealCal { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+
+.foodList { display: flex; flex-direction: column; gap: 0.4rem; min-height: 40px; margin-bottom: 0.75rem; }
+.foodRow { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.5rem; background: var(--bg); border-radius: 6px; }
+.foodName { flex: 1; font-size: 0.85rem; font-weight: 500; }
+.foodQty { font-size: 0.78rem; color: var(--muted); }
+.foodCal { font-size: 0.8rem; font-weight: 600; color: var(--primary); }
+.foodMacro { font-size: 0.72rem; color: var(--muted); }
+.removeBtn { background: none; border: none; color: var(--muted); font-size: 0.8rem; padding: 0.1rem 0.3rem; border-radius: 4px; }
+.removeBtn:hover { color: var(--danger); background: var(--danger-light); }
+
+.addForm { display: flex; flex-direction: column; gap: 0.5rem; position: relative; }
+.foodDropdown { position: absolute; top: calc(100% - 0.5rem); left: 0; right: 0; background: #fff; border: 1.5px solid var(--border); border-radius: 8px; z-index: 10; max-height: 200px; overflow-y: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.foodOption { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0.9rem; border: none; background: none; width: 100%; text-align: left; cursor: pointer; gap: 0.5rem; border-bottom: 1px solid var(--border); }
+.foodOption:last-child { border-bottom: none; }
+.foodOption:hover { background: var(--bg); }
+.foodOption span:first-child { font-size: 0.88rem; font-weight: 500; }
+
+.addBtn { width: 100%; padding: 0.5rem; border: 1.5px dashed var(--border); border-radius: 8px; background: transparent; color: var(--muted); font-size: 0.88rem; transition: all 0.15s; }
+.addBtn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }

@@ -1,0 +1,81 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.header p {
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.role {
+  background: #ede9fe;
+  color: #6366f1;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.section {
+  margin-top: 1.5rem;
+}
+
+.section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.bookingList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bookingCard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+}
+
+.bookingCard h4 {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.bookingCard p {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.status {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.empty {
+  text-align: center;
+  padding: 2.5rem;
+  color: #94a3b8;
+  background: #fff;
+  border-radius: 10px;
+}

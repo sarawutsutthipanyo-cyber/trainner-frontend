@@ -1,0 +1,47 @@
+.page { min-height: 100vh; background: #f8fafc; }
+
+.header {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #fff; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.header h1 { font-size: 1.1rem; font-weight: 700; }
+
+.content { padding: 1.25rem; max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+
+.uploadSection { display: flex; flex-direction: column; gap: 1rem; }
+
+.uploadBox {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.75rem; padding: 2.5rem 1rem;
+  border: 2px dashed var(--border); border-radius: 16px;
+  background: #fff; color: var(--muted); cursor: pointer;
+  transition: border-color 0.15s;
+}
+.uploadBox:hover { border-color: var(--primary); color: var(--primary); }
+.uploadBox p { font-size: 0.9rem; font-weight: 500; }
+
+.previewWrap { position: relative; border-radius: 16px; overflow: hidden; }
+.preview { width: 100%; max-height: 300px; object-fit: cover; display: block; border-radius: 16px; }
+.removePreview {
+  position: absolute; top: 0.75rem; right: 0.75rem;
+  background: rgba(0,0,0,0.6); color: #fff; border: none;
+  padding: 0.4rem 0.75rem; border-radius: 20px; font-size: 0.82rem; cursor: pointer;
+}
+
+.form { background: #fff; border-radius: 16px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+.history h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; }
+
+.photoGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+
+.photoCard { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+
+.photoImg { width: 100%; height: 130px; object-fit: cover; display: block; }
+
+.photoMeta {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.5rem 0.6rem; font-size: 0.75rem; color: var(--muted); font-weight: 600;
+}
+.photoNotes { padding: 0 0.6rem 0.5rem; font-size: 0.72rem; color: var(--muted); }

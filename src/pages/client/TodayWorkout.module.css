@@ -1,0 +1,28 @@
+.page { display: flex; flex-direction: column; gap: 1.25rem; }
+.header { display: flex; align-items: center; justify-content: space-between; }
+.header h1 { font-size: 1.4rem; font-weight: 700; }
+
+.progressBar {}
+.progressInfo { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+.progressBg { height: 12px; background: var(--border); border-radius: 6px; overflow: hidden; }
+.progressFill { height: 100%; background: var(--success); border-radius: 6px; transition: width 0.4s; }
+
+.exerciseList { display: flex; flex-direction: column; gap: 1rem; }
+
+.exCard { background: var(--card); border-radius: 12px; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.07); border: 2px solid transparent; transition: border-color 0.15s; }
+.exDone { border-color: var(--success); }
+.exHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+.exHeader h3 { font-size: 1rem; font-weight: 700; }
+
+.setList { display: flex; flex-direction: column; gap: 0.4rem; }
+.setHeader { display: grid; grid-template-columns: 40px 1fr 1fr 56px; gap: 0.5rem; font-size: 0.75rem; color: var(--muted); font-weight: 600; padding: 0 0.25rem; }
+.setRow { display: grid; grid-template-columns: 40px 1fr 1fr 56px; gap: 0.5rem; align-items: center; padding: 0.4rem 0.25rem; border-radius: 6px; transition: background 0.15s; }
+.setCompleted { background: var(--success-light); }
+.setNum { font-weight: 700; color: var(--muted); font-size: 0.9rem; text-align: center; }
+.setInput { padding: 0.4rem 0.5rem; border: 1.5px solid var(--border); border-radius: 6px; font-size: 0.9rem; text-align: center; width: 100%; }
+.setInput:disabled { background: transparent; border-color: transparent; color: var(--text); }
+.doneBtn { width: 48px; height: 36px; border-radius: 8px; border: 2px solid var(--border); background: #fff; font-size: 1rem; transition: all 0.15s; }
+.doneBtn:hover { border-color: var(--success); background: var(--success-light); }
+.doneBtnActive { border-color: var(--success); background: var(--success-light); }
+
+.actions { display: flex; gap: 0.75rem; justify-content: flex-end; padding-top: 0.5rem; }

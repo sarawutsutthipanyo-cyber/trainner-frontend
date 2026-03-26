@@ -1,0 +1,76 @@
+.page { max-width: 1100px; }
+
+.header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.programName { font-size: 1.3rem; font-weight: 700; border: none; background: transparent; outline: none; color: var(--text); border-bottom: 2px solid var(--border); padding: 0.1rem 0.3rem; }
+.programName:focus { border-bottom-color: var(--primary); }
+.clientName { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+
+.builder { background: var(--card); border-radius: 16px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+
+.dayTabs { display: grid; grid-template-columns: repeat(7, 1fr); border-bottom: 2px solid var(--border); }
+.dayTab {
+  padding: 0.75rem 0.5rem;
+  border: none;
+  background: transparent;
+  display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+  cursor: pointer; transition: background 0.15s;
+  border-right: 1px solid var(--border);
+}
+.dayTab:last-child { border-right: none; }
+.dayTab:hover { background: var(--bg); }
+.dayTab.active { background: var(--primary); }
+.dayTab.active .dayTabName, .dayTab.active .dayTabType { color: #fff; }
+.dayTabName { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+.dayTabType { font-size: 1rem; }
+.dayTab.rest .dayTabName { color: var(--muted); }
+.dayTab.cardio { background: #f0fdf4; }
+.dayTab.cardio.active { background: var(--success); }
+.dayTab.workout { background: #faf5ff; }
+.dayTab.workout.active { background: var(--primary); }
+
+.dayConfig { padding: 1.5rem; }
+
+.typeSelector { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
+.typeBtn {
+  flex: 1; padding: 0.6rem;
+  border: 2px solid var(--border);
+  border-radius: 8px; background: #fff;
+  font-weight: 600; font-size: 0.9rem;
+  transition: all 0.15s;
+}
+.typeActive { border-color: var(--primary); background: var(--primary-light); color: var(--primary); }
+
+.cardioConfig { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.workoutConfig { display: flex; flex-direction: column; gap: 1rem; }
+
+.selectedExercises { border: 1.5px solid var(--border); border-radius: 10px; padding: 1rem; }
+.selectedExercises h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; }
+.emptyHint { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 1rem; }
+
+.exRow {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 0; border-bottom: 1px solid var(--border);
+}
+.exRow:last-child { border-bottom: none; }
+.exName { flex: 1; font-size: 0.88rem; font-weight: 500; }
+.exInput { width: 56px; padding: 0.3rem 0.4rem; border: 1.5px solid var(--border); border-radius: 6px; text-align: center; font-size: 0.88rem; }
+.exLabel { font-size: 0.78rem; color: var(--muted); }
+
+.exLibrary { border: 1.5px solid var(--border); border-radius: 10px; padding: 1rem; }
+.exLibrary h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.75rem; }
+.exFilters { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.75rem; }
+.exList { display: flex; flex-direction: column; gap: 0.25rem; max-height: 280px; overflow-y: auto; }
+.exItem {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px; background: #fff;
+  cursor: pointer; transition: all 0.1s; text-align: left;
+}
+.exItem:hover { border-color: var(--primary); background: var(--primary-light); }
+.exAdded { border-color: var(--success); background: var(--success-light); cursor: default; }
+.exItemName { flex: 1; font-size: 0.88rem; font-weight: 500; }
+
+.restDay { text-align: center; padding: 3rem; color: var(--muted); }
+.restIcon { font-size: 3rem; display: block; margin-bottom: 0.75rem; }

@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #6366f1;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.links a {
+  color: #475569;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: #6366f1;
+}
+
+.btnOutline {
+  padding: 0.4rem 1rem;
+  border: 1.5px solid #6366f1;
+  border-radius: 6px;
+  color: #6366f1;
+  background: transparent;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btnOutline:hover {
+  background: #6366f1;
+  color: #fff;
+}
+
+.btnPrimary {
+  padding: 0.4rem 1rem;
+  background: #6366f1;
+  border-radius: 6px;
+  color: #fff !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.btnPrimary:hover {
+  background: #4f46e5;
+}

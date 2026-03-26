@@ -1,0 +1,74 @@
+.bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.logo { font-size: 3rem; text-align: center; margin-bottom: 0.5rem; }
+
+.card h2 {
+  font-size: 1.8rem; font-weight: 800;
+  text-align: center; margin-bottom: 0.25rem;
+}
+
+.card > p {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.error {
+  background: var(--danger-light); color: var(--danger);
+  border-radius: 8px; padding: 0.75rem 1rem;
+  margin-bottom: 1rem; font-size: 0.88rem;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.footer a { color: var(--primary); font-weight: 600; }
+
+.logo svg { color: var(--primary); }
+
+.modeToggle {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 1.25rem;
+  gap: 4px;
+}
+
+.modeBtn {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.modeBtnActive {
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
